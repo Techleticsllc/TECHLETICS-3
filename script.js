@@ -184,10 +184,10 @@ function initHeroScene(THREE, EffectComposer, RenderPass, UnrealBloomPass, color
   scene.add(shadowMesh);
 
   const rings = [];
-  [2.8, 4.1].forEach((r, i) => {
+  [4.1].forEach((r, i) => {
     const ringGeo = new THREE.TorusGeometry(r, 0.008, 16, 128);
     const ringMat = new THREE.MeshBasicMaterial({
-      color: i % 2 === 0 ? 0x1e90ff : 0xff6a00,
+      color: 0xff6a00,
       transparent: true,
       opacity: 0.35,
     });
@@ -282,11 +282,6 @@ function initHeroScene(THREE, EffectComposer, RenderPass, UnrealBloomPass, color
   if (fallbackOrb) fallbackOrb.style.opacity = "0";
 }
 
-/* ============================================================
-   Small basketball for the Engineering section — same texture,
-   same continuous rotation speed as the hero ball, just smaller
-   and without the bloom/particle staging around it.
-   ============================================================ */
 function initEngineeringBall(THREE, colorTex, bumpTex) {
   const canvas = document.getElementById("engineeringCanvas");
   if (!canvas) return;
@@ -336,7 +331,6 @@ function initEngineeringBall(THREE, colorTex, bumpTex) {
 
   function animate() {
     requestAnimationFrame(animate);
-    // same autospin speed as the hero ball
     ball.rotation.y += 0.0032;
     renderer.render(scene, camera);
   }
