@@ -184,7 +184,7 @@ function initHeroScene(THREE, EffectComposer, RenderPass, UnrealBloomPass, color
   scene.add(shadowMesh);
 
   const rings = [];
-  [2.8, 3.4, 4.1].forEach((r, i) => {
+  [2.8, 4.1].forEach((r, i) => {
     const ringGeo = new THREE.TorusGeometry(r, 0.008, 16, 128);
     const ringMat = new THREE.MeshBasicMaterial({
       color: i % 2 === 0 ? 0x1e90ff : 0xff6a00,
