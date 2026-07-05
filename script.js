@@ -183,20 +183,8 @@ function initHeroScene(THREE, EffectComposer, RenderPass, UnrealBloomPass, color
   shadowMesh.position.y = -2.6;
   scene.add(shadowMesh);
 
+  // All rings removed to clear the view
   const rings = [];
-  [4.1].forEach((r, i) => {
-    const ringGeo = new THREE.TorusGeometry(r, 0.008, 16, 128);
-    const ringMat = new THREE.MeshBasicMaterial({
-      color: 0xff6a00,
-      transparent: true,
-      opacity: 0.35,
-    });
-    const ring = new THREE.Mesh(ringGeo, ringMat);
-    ring.rotation.x = Math.PI / 2 + i * 0.4;
-    ring.rotation.y = i * 0.7;
-    scene.add(ring);
-    rings.push(ring);
-  });
 
   const particleCount = 500;
   const particleGeo = new THREE.BufferGeometry();
